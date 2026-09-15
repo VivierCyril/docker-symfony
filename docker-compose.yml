@@ -20,13 +20,16 @@ services:
       - php
     
   db:
+    env_file: 
+      - path: ./.env.local
+        required: true
     image: mysql:8.0
     container_name: db-api
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: api
+      MYSQL_USER: apiroot
+      MYSQL_PASSWORD: secret
     ports:
       - "3306:3306"
     restart: always
@@ -34,18 +37,20 @@ services:
       - db_data:/var/lib/mysql
 
   phpma:
+    env_file: 
+      - path: ./.env.local
+        required: true
     image: phpmyadmin
     container_name: phpmyadmin-api
     restart: always
     ports:
       - 9000:80
     environment:
-      PMA_ARBITRARY: ${PMA_ARBITRARY}
-      PMA_HOST: ${PMA_HOST}
-      PMA_USER: ${PMA_USER}
-      PMA_PASSWORD: ${PMA_PASSWORD}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      UPLOAD_LIMIT: ${UPLOAD_LIMIT}
+      PMA_ARBITRARY: 1
+      PMA_HOST: db
+      PMA_USER: apiroot
+      PMA_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
 
 volumes:
   db_data:

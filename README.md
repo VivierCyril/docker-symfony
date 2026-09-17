@@ -1,32 +1,20 @@
-# Initialisation
+# Tuto Symfony API REST avec Docker
 
-Cloner le dépôt 
+![Symfony - Docker](docs/images/symfony-docker.jpeg)
 
-```bash
-git clone <lien>
-```
+> [!NOTE]
+> Objectif : S'entrainer à utiliser la dockerisation d'un projet Symfony afin d'être capable de concevoir une API REST pour répondre à une demande en respectant les règles de l'art.
+>
+> Ressources : [Doc Symfony](https://symfony.com/doc/current/setup.html)
 
-Créer une image docker
 
-```bash
-docker-compose build
-```
-Créer un container avec les services 
+### Outils nécessaires à installer au préalable
+- GIT
+- Docker
 
-```bash
-docker-compose up -d
-```
+### Instruction 
+- [Créer un projet API Symfony avec Docker](docs/INSTALLATION.md)
+- [Installation du bundle API Platform sous Symfony](docs/API.md)
+- [Configurer l’authentification JWT dans Symfony pour sécuriser l’API](docs/JWT.md)
 
-Connectez vous au conteneur 
-
-```bash
-docker exec -it php8-symfony bash
-```
-
-Installer les dépendances Symfony
-
-```bash
-composer install
-```
-Ajouter la variable DATABASE_URL du fichier .env en adéquention avec le docker-compose.
 

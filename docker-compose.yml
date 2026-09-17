@@ -1,6 +1,6 @@
 services:
   php:
-    container_name: php8425
+    container_name: php8-symfony
     build:
       context: .
       dockerfile: docker/Dockerfile
@@ -20,9 +20,6 @@ services:
       - php
     
   db:
-    env_file: 
-      - path: ./.env.local
-        required: true
     image: mysql:8.0
     container_name: db-api
     environment:
@@ -37,9 +34,6 @@ services:
       - db_data:/var/lib/mysql
 
   phpma:
-    env_file: 
-      - path: ./.env.local
-        required: true
     image: phpmyadmin
     container_name: phpmyadmin-api
     restart: always

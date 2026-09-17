@@ -1,27 +1,32 @@
 # Initialisation
 
-Run the docker-compose
+Cloner le dépôt 
+
+```bash
+git clone <lien>
+```
+
+Créer une image docker
 
 ```bash
 docker-compose build
+```
+Créer un container avec les services 
+
+```bash
 docker-compose up -d
 ```
 
-
-Log into the PHP container
+Connectez vous au conteneur 
 
 ```bash
-docker exec -it php8-sf6 bash
+docker exec -it php8-symfony bash
 ```
 
-Install dependency
+Installer les dépendances Symfony
 
 ```bash
 composer install
 ```
+Ajouter la variable DATABASE_URL du fichier .env en adéquention avec le docker-compose.
 
-If you need a database, modify the .env file like this example:
-
-```yaml
-  DATABASE_URL=
-```
